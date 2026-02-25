@@ -18,6 +18,7 @@ export default class MultiCustomLookup extends LightningElement {
         let value= event.target.value;
         this.delayTimeout = setTimeout(() => {
             this.searchKey = value;
+            console.log('Search Key: ', this.searchKey);
         }, DELAY);
     }
 
@@ -26,12 +27,13 @@ export default class MultiCustomLookup extends LightningElement {
         if (data) {
             this.hasRecords = data.length > 0 ? true : false;
             this.searchOutput = data;
+            console.log('Search Output: ', this.searchOutput);
         } else if (error) {
             console.log('Error fetching lookup data: ', error);
         }
     }
 
-    changeHandler(event){
+    clickHandler(event){
         let recid = event.target.getAttribute('data-recid');
         console.log('Selected Record Id: ', recid);
     }
