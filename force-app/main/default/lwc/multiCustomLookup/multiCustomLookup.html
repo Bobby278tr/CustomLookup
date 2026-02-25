@@ -7,6 +7,10 @@
                     <div class="slds-combobox slds-dropdown-trigger slds-dropdown-trigger_click slds-is-open">
                         <div class="slds-combobox__form-element slds-input-has-icon slds-input-has-icon_right" role="none">
                             <lightning-input type="search" label={label} placeholder={placeholder} onchange={changeHandler} class="slds-var-p-left_small slds-var-p-right_small"></lightning-input>
+                            <template if:true={showPillContainer}>
+                                <lightning-pill-container items={selectedRecords} onitemremove={handleItemRemove}></lightning-pill-container>
+                            </template>
+                                
                         </div>
                         <template if:true={hasRecords}>
                             <div id="listbox-id-2" class="slds-dropdown slds-dropdown_length-with-icon-7 slds-dropdown_fluid" role="listbox" tabindex="0" aria-busy="false">
